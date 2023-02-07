@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	  <Nullable>disable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="Scrutor" Version="4.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\FileProcessor.CORE\FileProcessor.CORE.csproj" />
+    <ProjectReference Include="..\FileProcessor\FileProcessor.csproj" />
+    <ProjectReference Include="..\OrderYourChow.CORE\OrderYourChow.CORE.csproj" />
+    <ProjectReference Include="..\OrderYourChow.DAL.CORE\OrderYourChow.DAL.CORE.csproj" />
+    <ProjectReference Include="..\OrderYourChow.Infrastructure\OrderYourChow.Infrastructure.csproj" />
+    <ProjectReference Include="..\OrderYourChow.Repositories\OrderYourChow.Repositories.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<InternalsVisibleTo Include="MyTestProject" />
+  </ItemGroup>
+</Project>

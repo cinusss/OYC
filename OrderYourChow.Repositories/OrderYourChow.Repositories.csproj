@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+	    <TargetFramework>net6.0</TargetFramework>
+	    <Nullable>disable</Nullable>
+	    <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="LinqKit" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FileProcessor.CORE\FileProcessor.CORE.csproj" />
+    <ProjectReference Include="..\OrderYourChow.DAL.CORE\OrderYourChow.DAL.CORE.csproj" />
+    <ProjectReference Include="..\OrderYourChow.CORE\OrderYourChow.CORE.csproj" />
+  </ItemGroup>
+
+</Project>
