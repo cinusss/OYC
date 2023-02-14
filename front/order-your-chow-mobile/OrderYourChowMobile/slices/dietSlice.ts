@@ -4,10 +4,17 @@ import {RootState} from '../store';
 
 export interface DietState {
   dietDay: RecipesListItem[];
+  activeRecipe?: RecipesListItem | null;
+}
+
+export interface RecipeCategory {
+  categoryId: number;
+  category: string;
 }
 
 const initialState: DietState = {
   dietDay: [],
+  activeRecipe: null,
 };
 
 export const dietSlice = createSlice({
@@ -16,6 +23,12 @@ export const dietSlice = createSlice({
   reducers: {
     setList: (state, action: PayloadAction<RecipesListItem[]>) => {
       state.dietDay = action.payload;
+    },
+
+    setActiveRecipe: (state, action: PayloadAction<number>) => {
+      state.activeRecipe = state.dietDay.find(
+        x => x.categoryId === action.payload,
+      );
     },
 
     setIsFavourite: (state, action: PayloadAction<number>) => {
@@ -27,8 +40,18 @@ export const dietSlice = createSlice({
   },
 });
 
-export const {setList, setIsFavourite} = dietSlice.actions;
+export const {setList, setIsFavourite, setActiveRecipe} = dietSlice.actions;
 
 export const selectDietDay = (state: RootState) => state.diet.dietDay;
+export const selectRecipeCategoriesForDietDay = (state: RootState) =>
+  state.diet.dietDay.map(
+    item =>
+      ({
+        category: item.categoryName,
+        categoryId: item.categoryId,
+      } as RecipeCategory),
+  );
+export const selectActiveCategoryId = (state: RootState) =>
+  state.diet.activeRecipe?.categoryId;
 
 export default dietSlice.reducer;
